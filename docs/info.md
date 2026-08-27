@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-The module takes in a speed selection input and pulse duration then changes the frequency of the electrical impulses being generated. 
+The module takes in a speed selection input and pulse duration then changes the frequency of the electrical impulses being generated. This project just demonstrates how a digital method can control the pulses through a PWM generator however in reality TENs devices are complicated and involve many more components outside of a digital pulse controller.
 
 ## How to test
 
