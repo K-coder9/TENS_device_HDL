@@ -13,5 +13,7 @@ The module takes in a speed selection input and pulse duration then changes the 
 
 ## How to test
 
-Draw the selection pins high and low then probe the output pins on an oscilloscope to measure the frequency.
+Run the testbench files found in test folder. The duty_ratio test sets a random number for the dp and compares the signal generated to the requested input. 
+
+The project passes prechecks.
 
