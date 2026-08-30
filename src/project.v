@@ -18,12 +18,20 @@ module tt_um_K_coder_9 (
   wire pwm_clk;
   wire burst_en;
   wire pwm_out;
+  wire burst_clk;
 
-  low_clk #(.MAX(8'd15)) u_low_clk(
+  low_clk #(.MAX(8'd7)) u_low_clk(
     .clk(clk),
     .rst_n(rst_n),
     .clk_lo(clk_lo)
   );
+  
+  low_clk #(.MAX(8'd191)) u_burst_clk(
+    .clk(clk),
+    .rst_n(rst_n),
+    .clk_lo(burst_clk)
+  );// 1 burst a second so the u_burst_clk must be 100 Hz 
+  
   
   clock_mux u_clk_mux(
     .sel(uio_in[0]),
@@ -39,12 +47,15 @@ module tt_um_K_coder_9 (
     .burst_en(burst_en),
     .pwm(pwm_out)
   );
+  
   burst_gen u_burst_gen (
-      .clk      (clk_lo),
+    .clk      (burst_clk),
       .rst_n    (rst_n),
       .mode     (uio_in[1]),
       .burst_en (burst_en)
   );
+  
+  
   //labelling the pins 
   //ui_in - set duty cycle
   //uio_in [0] - set speed 
