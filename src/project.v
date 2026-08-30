@@ -1,8 +1,4 @@
 
-`include "PWM_generator.v"
-`include "clock_mux.v"
-`include "low_clk.v"
-`include "burst_gen.v"
 
 `default_nettype none
 
