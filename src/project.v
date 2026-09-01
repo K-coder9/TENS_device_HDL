@@ -1,5 +1,4 @@
 
-
 `default_nettype none
 
 module tt_um_K_coder_9 (
@@ -15,44 +14,49 @@ module tt_um_K_coder_9 (
   
   
   wire clk_lo;
-  wire pwm_clk;
   wire burst_en;
   wire pwm_out;
-  wire burst_clk;
+  wire burst_clk_en;
+  
+  
+  //clk enable mux 
+  wire clk_enable = uio_in[0]?1:clk_lo;
 
-  low_clk #(.MAX(8'd7)) u_low_clk(
+  low_clk #(.MAX(9'd14)) u_low_clk(
     .clk(clk),
     .rst_n(rst_n),
-    .clk_lo(clk_lo)
+    .clk_tick(clk_lo)
   );
   
-  low_clk #(.MAX(8'd191)) u_burst_clk(
+  low_clk #(.MAX(9'd383)) u_burst_clk(//get 100Hz
     .clk(clk),
     .rst_n(rst_n),
-    .clk_lo(burst_clk)
+    .clk_tick(burst_clk_en)
   );// 1 burst a second so the u_burst_clk must be 100 Hz 
   
   
-  clock_mux u_clk_mux(
-    .sel(uio_in[0]),
-    .clk_high(clk),
-    .clk_low(clk_lo),
-    .pwm_clk(pwm_clk)
-  );
+//   clock_mux u_clk_mux(
+//     .sel(uio_in[0]),
+//     .clk_high(clk),
+//     .clk_low(clk_lo),
+//     .pwm_clk(pwm_clk)
+//   );
 
   PWM_generator u_pwm(
     .dp(ui_in),
-    .clk(pwm_clk),
+    .clk(clk),
+    .clk_en(clk_enable),
     .rst_n(rst_n),
     .burst_en(burst_en),
     .pwm(pwm_out)
   );
   
   burst_gen u_burst_gen (
-    .clk      (burst_clk),
-      .rst_n    (rst_n),
-      .mode     (uio_in[1]),
-      .burst_en (burst_en)
+    .clk      (clk),
+    .rst_n    (rst_n),
+    .mode     (uio_in[1]),
+    .clk_en   (burst_clk_en),
+    .burst_en (burst_en)
   );
   
   
