@@ -20,7 +20,6 @@ project:
     - "project.v"
     - "PWM_generator.v"
     - "burst_gen.v"
-    - "clock_mux.v"
     - "low_clk.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
