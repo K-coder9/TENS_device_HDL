@@ -16,6 +16,7 @@ module tens_pwm_test_tb;
   always #13_020.8 clk = ~clk;//maybe 
   //hold rst_n to ensure proper reset of signals 
  initial begin 
+   //display time in ms 
   logic [31:0] seed;
   static logic [7:0] pwm_out_count = 8'b0;
   rst_n = 1'b0;
@@ -24,7 +25,8 @@ module tens_pwm_test_tb;
   rst_n = 1'b1;
   
   //set a random value for dp and check the fast mode
-  uio_in[0] = 1'b1;
+   uio_in[0] = 1'b1;
+   uio_in[1] = 1'b0;
   @(posedge clk);
     for(int i=0;i<10;i+=1)begin 
       seed = 2;
@@ -47,17 +49,30 @@ module tens_pwm_test_tb;
     
     //check if the on count matches the dp set in the beginning 
     
-   if((pwm_out_count == ui_in)&&uio_in[0])
+   if((pwm_out_count == ui_in)&&uio_in[0]&&!uio_in[1])
       begin 
         $display("TEST has passed for for high speed");
-      end else if((pwm_out_count != ui_in)&&uio_in[0]) begin 
+      end else if((pwm_out_count != ui_in)&&uio_in[0]&&!uio_in[1]) begin 
         $display("TEST has failed. DP entered was %b but the measured output dp was: %b",ui_in,pwm_out_count);
-      end else if((pwm_out_count == ui_in)&&!uio_in[0])begin
+      end else if((pwm_out_count == ui_in)&&!uio_in[0]&&!uio_in[1])begin
        $display("TEST has passed for for low speed");
-      end else if((pwm_out_count != ui_in)&&!uio_in[0])begin
+      end else if((pwm_out_count != ui_in)&&!uio_in[0]&&!uio_in[1])begin
         $display("TEST has failed for low speed. DP entered was %b but the measured output dp was: %b",ui_in,pwm_out_count);
       end
-    $finish;
+    
+   //add in burst mode test sample if the first pulse and last pulse are 100ms a part 
+   //take time of the burst_en goes down to zero it is normally on to allow continuous so measure what time the burst is off , epxpect to be around 200 ms
+   uio_in[1] = 1'b1;
+   if(uio_in[1])begin
+   realtime burst_end;
+   @(negedge dut.u_burst_gen.burst_en);
+   burst_end = $realtime;
+   
+   $display("Burst finished at time: %0t",burst_end);
+   end else begin
+     $display("There was not burst test");
+   end
+   $finish;
   end 
   
   //set a random value for dp and check the slow mode 
