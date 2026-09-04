@@ -4,6 +4,10 @@
 
 - [Read the documentation for project](docs/info.md)
 
+# References for project
+* https://www.mystphysio.com/tens-parameters-explained/
+* https://www.nhs.uk/tests-and-treatments/transcutaneous-electrical-nerve-stimulation-tens/
+
 ## What is Tiny Tapeout?
 
 Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital and analog designs manufactured on a real chip.
