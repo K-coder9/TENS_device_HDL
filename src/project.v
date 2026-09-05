@@ -33,15 +33,7 @@ module tt_um_K_coder_9 (
     .rst_n(rst_n),
     .clk_tick(burst_clk_en)
   );// 1 burst a second so the u_burst_clk must be 100 Hz 
-  
-  
-//   clock_mux u_clk_mux(
-//     .sel(uio_in[0]),
-//     .clk_high(clk),
-//     .clk_low(clk_lo),
-//     .pwm_clk(pwm_clk)
-//   );
-
+    
   PWM_generator u_pwm(
     .dp(ui_in),
     .clk(clk),
