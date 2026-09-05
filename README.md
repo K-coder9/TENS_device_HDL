@@ -1,8 +1,7 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Tapeout Verilog Project Template
-
-- [Read the documentation for project](docs/info.md)
+# TENs Device inspired controller
+Essentially, this project aims to create a simple PWM_generator made to be used to generate the pulses inside a TENs Device. TENs devices are transportable pain management devices which can be used from the comfort of the patient's home. These devices send electrical impulses at configured frequencies into the patient's muscles through electrodes attached to the skin, commonly used to provide relief for sports injuries, menstrual and labour pains.
 
 # References for project
 * https://www.mystphysio.com/tens-parameters-explained/
