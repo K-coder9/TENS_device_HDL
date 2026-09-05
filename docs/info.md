@@ -13,7 +13,10 @@ The module takes in a speed selection input and pulse duration then changes the 
 
 |Pin name     | Description |
 |-------------|-------------|
-|ui_in[7:0]   |Sets the speed of the duty cycle|
+|ui_in[7:0]   |Sets the duty ratio of the PWM output|
+|uio_in[0]    |Sets the speed. The pin can be assigned high or low. 1: High speed, 
+              the PWM generator uses the system clk and produces a pulse of 150Hz.|
+
 |----------------------------|
 The output of the PWM signal is expected to be 150Hz on high speed and 10 Hz on low speed.
 ## How to test
