@@ -11,14 +11,19 @@ You can also include images in this folder and reference them in the markdown. E
 
 The module takes in a speed selection input and pulse duration then changes the frequency of the electrical impulses being generated. This project just demonstrates how a digital method can control the pulses through a PWM generator however in reality TENs devices are complicated and involve many more components outside of a digital pulse controller. The design involves an input signal to set the speed to high low and the mode to continuous or burst mode. Leaving the mode on continuous means the output will behave like and expected PWM_generator with the same frequency as selected and no interruptions between cycles. However selecting burst mode masks the pulse in an envelope  producing a burst of pulses for 200ms and pausing for 800ms.
 
+### Input pins
 |Pin name     | Description |
 |-------------|-------------|
 |ui_in[7:0]   |Sets the duty ratio of the PWM output|
-|uio_in[0]    |Sets the speed. The pin can be assigned high or low. 1: High speed, 
-              the PWM generator uses the system clk and produces a pulse of 150Hz.|
-
+|uio_in[0]    |Sets the speed. The pin can be assigned high or low. 1: High speed of 150Hz 0: Low speed of 10Hz|
+|uio_in[1]    |Sets the mode. 1: Burst mode 0: Conitnuous mode|
+|uio_in[7:2]  |Unused|
 |----------------------------|
-The output of the PWM signal is expected to be 150Hz on high speed and 10 Hz on low speed.
+
+### Output Pins
+|Pin name     | Description |
+|-------------|-------------|
+|uo_out[0]    |The PWM sgnal|
 ## How to test
 
 - set the duty ratio inputs ui_in to a number between 0 -255
