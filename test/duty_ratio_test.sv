@@ -36,8 +36,8 @@ module tens_pwm_test_tb;
    uio_in[0] = 1'b1;
    uio_in[1] = 1'b0;
   @(posedge clk);
+   seed = 2;
     for(int i=0;i<10;i+=1)begin 
-      seed = 2;
       ui_in = $random(seed);
     end
     
