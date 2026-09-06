@@ -35,8 +35,8 @@ module tens_pwm_test_tb;
   //set a random value for dp and check the fast mode
    uio_in[0] = 1'b1;
    uio_in[1] = 1'b0;
-  @(posedge clk);
    seed = 2;
+  @(posedge clk);
     for(int i=0;i<10;i+=1)begin 
       ui_in = $random(seed);
     end
