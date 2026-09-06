@@ -20,7 +20,7 @@ The PWM signal is outputted on the pin, uo_out. However selecting burst mode mas
 |uio_in[0]    |Sets the speed. The pin can be assigned high or low. 1: High speed of 150Hz 0: Low speed of 10Hz|
 |uio_in[1]    |Sets the mode. 1: Burst mode 0: Conitnuous mode|
 |uio_in[7:2]  |Unused|
-|-------------|--------------|
+
 
 ### Output Pins
 |Pin name     | Description |
