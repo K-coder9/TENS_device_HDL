@@ -34,6 +34,8 @@ The mode of operation is set by asserting the input pin uio_in[1] high or low. T
 - Continuous mode:  The output the PWM signal is uninterrupted and pulses at the selected duty ratio and speed.
 - Burst mode: The pulses occur once a second. The pulses should be on for 200ms and off for 800ms
 
+  ![Burst timing](burst_timing.svg)
+
 ## How to test
 
 - set the duty ratio inputs ui_in to a number between 0 -255
