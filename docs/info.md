@@ -9,7 +9,9 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-The module takes in a speed selection input and pulse duration then changes the frequency of the electrical impulses being generated. This project just demonstrates how a digital method can control the pulses through a PWM generator however in reality TENs devices are complicated and involve many more components outside of a digital pulse controller. The design involves an input signal to set the speed to high low and the mode to continuous or burst mode. Leaving the mode on continuous means the output will behave like and expected PWM_generator with the same frequency as selected and no interruptions between cycles. However selecting burst mode masks the pulse in an envelope  producing a burst of pulses for 200ms and pausing for 800ms.
+The module takes in a speed selection input and duty ratio then changes the frequency of the electrical impulses being generated. This project just demonstrates how a digital method can control the pulses through a PWM generator however in reality TENs devices are complicated and involve many more components outside of a digital pulse controller. Real TENs Devices are used on patients, this project has not been reviewed for safety and should not be used to directly send electrical impulses to skin. Input signals uio_in[0] and uio_in[1] are used to set the speed and mode of the pulses.
+
+The PWM signal is outputted on the pin, uo_out. However selecting burst mode masks the pulse in an envelope  producing a burst of pulses for 200ms and pausing for 800ms.
 
 ### Input pins
 |Pin name     | Description |
@@ -24,6 +26,15 @@ The module takes in a speed selection input and pulse duration then changes the 
 |Pin name     | Description |
 |-------------|-------------|
 |uo_out[0]    |The PWM sgnal|
+|uo_out[7:1]  |unused       |
+
+### Modes of operation 
+The mode of operation is set by asserting the input pin uio_in[1] high or low.
+
+|Mode        |Description   |
+|------------|--------------|
+|Continuous mode| Burst mode|
+
 ## How to test
 
 - set the duty ratio inputs ui_in to a number between 0 -255
