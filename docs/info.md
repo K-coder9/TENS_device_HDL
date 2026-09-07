@@ -38,6 +38,7 @@ The mode of operation is set by asserting the input pin uio_in[1] high or low. T
                                                                  *Figure 1 : Output of burst mode*
 To illustrate the working logic a simple block diagram is shown in Figure 2.
  ![block_diagram](tens_device_block_mux.png)
+
 *Figure 2: Summative block diagram*
 
 ## How to test
