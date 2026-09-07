@@ -39,10 +39,11 @@ The mode of operation is set by asserting the input pin uio_in[1] high or low. T
 
 ## How to test
 
-- set the duty ratio inputs ui_in to a number between 0 -255
-- first select the continuous mode leaving uio_in[1] as 0 for continuous mode and probe uo_out[0] pin, the output should be a continuous PWM pulse
-- turn on burst mode by asserting uio_in[1] and adjust the time base as necessary then view output on oscilloscope, the output should look like the output in Figure 1
-- on burst mode the pulses should be present for 200ms and off for 800ms
+- Hold reset to return all signals to default
+- Set the duty ratio inputs ui_in to a number between 0 -255
+- First select the continuous mode leaving uio_in[1] as 0 for continuous mode and probe uo_out[0] pin, the output should be a continuous PWM pulse
+- Turn on burst mode by asserting uio_in[1] and adjust the time base as necessary then view output on oscilloscope, the output should look like the output in Figure 1
+- On burst mode the pulses should be present for 200ms and off for 800ms
 
 ## External hardware
 The output of the design is a PWM signal so an oscilloscope is necessary to view the output on uo_out[0]
