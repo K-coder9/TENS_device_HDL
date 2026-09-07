@@ -35,7 +35,7 @@ The mode of operation is set by asserting the input pin uio_in[1] high or low. T
 - Burst mode: The pulses occur once a second. The pulses should be on for 200ms and off for 800ms
 
   ![Burst timing](burst_timing.svg)
-  Figure 1
+ * Figure 1 : Output of burst mode*
 ## How to test
 
 - set the duty ratio inputs ui_in to a number between 0 -255
