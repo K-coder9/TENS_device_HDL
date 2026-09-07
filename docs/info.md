@@ -35,12 +35,12 @@ The mode of operation is set by asserting the input pin uio_in[1] high or low. T
 - Burst mode: The pulses occur once a second. The pulses should be on for 200ms and off for 800ms
 
   ![Burst timing](burst_timing.svg)
-
+  Figure 1
 ## How to test
 
 - set the duty ratio inputs ui_in to a number between 0 -255
-- first select the continuous mode leaving uio_in[0] as 0 and probe uo_out[0] pin
-- turn on burst mode and adjust the time base as necessary then view output on oscilloscope
+- first select the continuous mode leaving uio_in[1] as 0 for continuous mode and probe uo_out[0] pin, the output should be a continuous PWM pulse
+- turn on burst mode by asserting uio_in[1] and adjust the time base as necessary then view output on oscilloscope, the output should look like the output in Figure 1
 - on burst mode the pulses should be present for 200ms and off for 800ms
 
 ## External hardware
