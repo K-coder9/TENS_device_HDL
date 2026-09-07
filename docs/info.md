@@ -36,10 +36,6 @@ The mode of operation is set by asserting the input pin uio_in[1] high or low. T
 
   ![Burst timing](burst_timing.svg)
                                                                  *Figure 1 : Output of burst mode*
-<figure>
-  <img src="burst_timing.svg" alt="Burst mode timing diagram">
-  <figcaption>Figure 1: burst_en gates the PWM output into 200 ms on / 800 ms off cycles.</figcaption>
-</figure>
 
 ## How to test
 
