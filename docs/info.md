@@ -41,7 +41,7 @@ To illustrate the working logic a simple block diagram is shown in Figure 2.
 
 *Figure 2: Summative block diagram*
 
-All module blocks have clk signal from the main 38400Hz and the active low rst_n. The main system clock must be 38400Hz because the pwm output uo_out[0] doesn't complete a full cycle until the 8 bit counter overflows. The high speed of the TENs Device pulse should be 150Hz therefore the required clk frequency should equal 150*2^8 = . 
+All module blocks shown in Figure 2 have clk signal from the main 38400Hz and the active low rst_n. The main system clock must be 38400Hz because the pwm output uo_out[0] doesn't complete a full cycle until the 8 bit counter overflows. The high speed of the TENs Device pulse should be 150Hz therefore the required clk frequency should equal 150*2^8 = . 
 
 ## How to test
 
