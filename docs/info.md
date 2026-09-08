@@ -37,7 +37,7 @@ The mode of operation is set by asserting the input pin uio_in[1] high or low. T
   ![Burst timing](burst_timing.svg)
                                                                  *Figure 1 : Output of burst mode*
 To illustrate the working logic a simple block diagram is shown in Figure 2.
- ![block_diagram](tens_device_block_mux.png)
+ ![block_diagram](block_with_uout.png)
 
 *Figure 2: Summative block diagram*
 All module blocks have clk signal from the main 38400Hz and the active low rst_n. The main system clock must be 38400Hz because the pwm output uo_out[0] remains high until a counter within the u_pwm module reaches the dp value however a full cycle isn't completed until the 8 bit counter overflows. The high speed of the TENs Device pulse should by 150Hz therefor the required clk frequency should equal 150*2^8. 
